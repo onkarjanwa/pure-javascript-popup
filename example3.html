@@ -7,7 +7,7 @@
     var documentReady = () => {
         if (document.readyState == 'complete') {
             document.getElementById("open-popup").addEventListener("click", function(e) {
-                var model = new xModelPopup({
+                var options = {
                     css: {
                         overlay_opacity: 0.6,
                         overlay_color: '#f5f5f7',
@@ -32,7 +32,8 @@
                         body: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</div>',
                         footer: '<button class="button-1 close"><span>Cancel</span></button><button class="button-2"><span>Confirm</span></button>'
                     }
-                });
+                };
+                var model = new xModelPopup(options);
                 model.init();
                 model.open();
             });

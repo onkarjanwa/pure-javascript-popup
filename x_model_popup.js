@@ -113,8 +113,8 @@ xModelPopup.prototype.position = function() {
     var top = (bodyOffset.h - modelOffset.h) / 2;
     var left = (bodyOffset.w - modelOffset.w) / 2;
    
-    model.style.top = !this.modelOptions.css.top ? top : this.modelOptions.css.top;
-    model.style.left = !this.modelOptions.css.left ? left : this.modelOptions.css.left;    
+    model.style.top = !this.modelOptions.css.top ? top+'px' : this.modelOptions.css.top;
+    model.style.left = !this.modelOptions.css.left ? left+'px' : this.modelOptions.css.left;    
 }
 xModelPopup.prototype.open = function() {
     document.getElementById(this.modelOptions.id).setAttribute('style', 'display: block');
