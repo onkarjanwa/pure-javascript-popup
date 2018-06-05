@@ -1,0 +1,47 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="">
+    <script type="text/javascript" src="x_model_class.js"></script>
+    <script type="text/javascript">
+    'use strict';
+    var sss = () => {
+        if (document.readyState == 'complete') {
+            document.getElementById("open-popup").addEventListener("click", function(e) {
+                var model = new xModelClass({
+                    css: {
+                        overlay_color: 'red',
+                        z_index: 10000,
+                        border: '4px solid #dedede',
+                        border_radius: '10px',
+                        padding: '40px',
+                        background_color: 'green',
+                        shadow: '',
+                        top: false,
+                        left: false
+                    },
+                    classes: {
+                        overlay: 'custom-overlay',
+                        container: 'custom-container',
+                        header: 'custom-header',
+                        body: 'custom-body',
+                        footer: 'custom-footer',
+                        close: 'custom-close'
+                    },
+                    content: {
+                        header: '<span>Hello World</span><button class="custom-close">Close me</div>',
+                        body: '<span>Hello World</span><button class="custom-close">Close me</div>',
+                        footer: '<span>Hello World</span><button class="custom-close">Close me</div>'
+                    }
+                });
+                model.init();
+                model.open();
+            });
+        }
+    };
+    document.onreadystatechange = sss;
+    </script>
+</head>
+<body>
+    <button id="open-popup">Open Popup</button>
+</body>
+</html>
