@@ -1,13 +1,13 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="">
-    <script type="text/javascript" src="x_model_class.js"></script>
+    <script type="text/javascript" src="x_model_popup.js"></script>
     <script type="text/javascript">
     'use strict';
     var sss = () => {
         if (document.readyState == 'complete') {
             document.getElementById("open-popup").addEventListener("click", function(e) {
-                var model = new xModelClass({
+                var model = new xModelPopup({
                     css: {
                         overlay_color: 'red',
                         z_index: 10000,
