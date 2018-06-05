@@ -4,7 +4,7 @@
     <script type="text/javascript" src="x_model_popup.js"></script>
     <script type="text/javascript">
     'use strict';
-    var sss = () => {
+    var documentReady = () => {
         if (document.readyState == 'complete') {
             document.getElementById("open-popup").addEventListener("click", function(e) {
                 var model = new xModelPopup({
@@ -38,7 +38,7 @@
             });
         }
     };
-    document.onreadystatechange = sss;
+    document.onreadystatechange = documentReady;
     </script>
 </head>
 <body>

@@ -1,0 +1,32 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="">
+    <script type="text/javascript" src="x_model_popup.js"></script>
+    <script type="text/javascript">
+    'use strict';
+    var documentReady = () => {
+        if (document.readyState == 'complete') {
+            document.getElementById("open-popup").addEventListener("click", function(e) {
+                var model = new xModelPopup({
+                    css: {
+                        top: '100px',
+                        left: false
+                    },
+                    content: {
+                        header: '<span>Hello World</span><button class="close">Close me</div>',
+                        body: 'body',
+                        footer: 'footer'
+                    }
+                });
+                model.init();
+                model.open();
+            });
+        }
+    };
+    document.onreadystatechange = documentReady;
+    </script>
+</head>
+<body>
+    <button id="open-popup">Open Popup</button>
+</body>
+</html>
