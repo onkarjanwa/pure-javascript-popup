@@ -1,4 +1,7 @@
 'use strict';
+/**
+ * @URL: https://github.com/onkarjanwa/pure-javascript-popup
+ */
 var xModelPopup = function(options) {
     var xModelOptions = {
         id: '',
@@ -103,10 +106,9 @@ xModelPopup.prototype.init = function() {
     }
 }
 xModelPopup.prototype.position = function() {
-    var body = document.getElementsByTagName('body')[0];
     var bodyOffset = {
-        w: body.offsetWidth,
-        h: body.offsetHeight
+        w: window.innerWidth,
+        h: window.innerHeight
     };
     var model = document.getElementById(this.modelOptions.id).getElementsByClassName('x-model-container ')[0];
 
@@ -134,4 +136,7 @@ xModelPopup.prototype.open = function() {
 }
 xModelPopup.prototype.close = function() {
     document.getElementById(this.modelOptions.id).remove();
+}
+xModelPopup.prototype.getId = function() {
+    return this.modelOptions.id;
 }

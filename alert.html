@@ -1,0 +1,86 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="">
+    <script type="text/javascript" src="x_model_popup.js"></script>
+    <script type="text/javascript">
+    'use strict';
+    var documentReady = () => {
+        if (document.readyState == 'complete') {
+            document.getElementById("open-popup").addEventListener("click", function(e) {
+                var options = {
+                    css: {
+                        overlay_opacity: 0.6,
+                        overlay_color: '#f5f5f7',
+                        z_index: 10000,
+                        border: '0',
+                        border_radius: '0',
+                        padding: '45px',
+                        background_color: '#ffffff',
+                        shadow: '0 6px 18px 0 rgba(0, 0, 0, 0.15)',
+                        width: '358px',
+                    },
+                    classes: {
+                        overlay: '',
+                        container: 'model-custom-container',
+                        header: 'model-custom-header',
+                        body: 'model-custom-body',
+                        footer: 'model-custom-footer alert-custom-footer',
+                        close: 'close'
+                    },
+                    content: {
+                        header: 'Your changes are complete',
+                        body: 'You will have until &lt;bill date&gt; to use your &lt;plan name&gt;',
+                        footer: '<button class="button-1 close"><span>Close</span></button>'
+                    }
+                };
+                var model = new xModelPopup(options);
+                model.init();
+                model.open();
+            });
+        }
+    };
+    document.onreadystatechange = documentReady;
+    </script>
+    <style type="text/css">
+    .model-custom-header {
+        height: 21px;
+        font-size: 18px;
+        text-align: center;
+        color: #2d2d2d;
+    }
+    .model-custom-body {
+        height: 20px;
+        font-size: 14px;
+        line-height: 1.43;  
+        margin: 10px 0;
+        padding-bottom: 20px;;
+        color: #868c9c;
+        text-align: center;
+    }
+    .model-custom-footer {
+        
+    }
+    .alert-custom-footer {
+        text-align: center;
+    }
+    .model-custom-container button.close {
+        width: 176px;
+        height: 40px;
+        border-radius: 4px;
+        background-color: #ffffff;
+        border: solid 1px #e4e6ea;
+        cursor: pointer;
+    }
+    .model-custom-container button.close span {
+        width: 43px;
+        height: 16px;
+        font-size: 14px;
+        text-align: center;
+        color: #0d80bf;
+    }
+    </style>
+</head>
+<body>
+    <button id="open-popup">Open Popup</button>
+</body>
+</html>
