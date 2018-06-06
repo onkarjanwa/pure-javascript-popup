@@ -1,0 +1,129 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="">
+    <script type="text/javascript" src="x_model_popup.js"></script>
+    <script type="text/javascript">
+    'use strict';
+    var documentReady = () => {
+        if (document.readyState == 'complete') {
+            document.getElementById("open-popup").addEventListener("click", function(e) {
+                var options = {
+                    css: {
+                        overlay_opacity: 0.6,
+                        overlay_color: '#f5f5f7',
+                        z_index: 10000,
+                        border: '0',
+                        border_radius: '4px',
+                        padding: '20px',
+                        background_color: '#ffffff',
+                        shadow: '0 6px 18px 0 rgba(0, 0, 0, 0.15)',
+                        width: '448px',
+                    },
+                    classes: {
+                        overlay: 'custom-overlay',
+                        container: 'custom-container',
+                        header: 'model-custom-header',
+                        body: 'model-custom-body',
+                        footer: 'custom-footer',
+                        close: 'close'
+                    },
+                    content: {
+                        header: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+                        body: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</div>',
+                        footer: '<button class="button-1 close"><span>Cancel</span></button><button class="button-2"><span>Confirm</span></button>'
+                    }
+                };
+                var model = new xModelPopup(options);
+                model.init();
+                model.open();
+                bindSecondPopupOpen();
+            });
+            
+            function bindSecondPopupOpen() {
+                console.log(document.getElementsByClassName("button-2")[0])
+                document.getElementsByClassName("button-2")[0].addEventListener("click", function(e) {
+                    var options = {
+                        css: {
+                            overlay_opacity: 0.6,
+                            overlay_color: '#f5f5f7',
+                            z_index: 10000,
+                            border: '0',
+                            border_radius: '4px',
+                            padding: '20px',
+                            background_color: '#ffffff',
+                            shadow: '0 6px 18px 0 rgba(0, 0, 0, 0.15)',
+                            width: '448px',
+                            top: '100px'
+                        },
+                        classes: {
+                            overlay: 'custom-overlay',
+                            container: 'custom-container',
+                            header: 'model-custom-header',
+                            body: 'model-custom-body',
+                            footer: 'custom-footer',
+                            close: 'close'
+                        },
+                        content: {
+                            header: 'Second Popup',
+                            body: 'This is second popup.',
+                            footer: '<button class="button-1 close"><span>Close Me</span></button>'
+                        }
+                    };
+                    var model = new xModelPopup(options);
+                    model.init();
+                    model.open();
+                });
+            }
+        }
+    };
+    document.onreadystatechange = documentReady;
+    </script>
+    <style type="text/css">
+    .model-custom-header {
+        height: 42px;
+        font-size: 18px;
+        text-align: center;
+        color: #2d2d2d;
+    }
+    .model-custom-body {
+        font-size: 14px;
+        line-height: 1.43;
+        text-align: center;
+        color: #868c9c;
+        margin: 20px 0;
+    }
+    .button-1 {
+        width: 176px;
+        height: 40px;
+        border-radius: 4px;
+        background-color: #00ab84;
+        border: solid 1px #e4e6ea;
+    }
+    .button-2 {
+        width: 176px;
+        height: 40px;
+        border-radius: 4px;
+        background-color: #ffffff;
+        border: solid 1px #e4e6ea;
+        float: right;
+    }
+    .button-1 span {
+        width: 43px;
+        height: 16px;
+        font-size: 14px;
+        text-align: center;
+        color: #ffffff;
+    }
+    .button-2 span {
+        width: 52px;
+        height: 16px;
+        font-size: 14px;
+        text-align: center;
+        color: #0d80bf;
+    }
+    </style>
+</head>
+<body>
+    <button id="open-popup">Open Popup</button>
+</body>
+</html>

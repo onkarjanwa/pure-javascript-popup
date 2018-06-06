@@ -28,12 +28,16 @@ var xModelPopup = function(options) {
             header: '',
             body: '',
             footer: ''
+        },
+        other: {
+            escClose: true
         }
     };
     this.modelOptions = Object.assign(xModelOptions, options);
     this.modelOptions.id = "x-model" + document.getElementsByClassName('x-model').length + 1;
 }
 xModelPopup.prototype.init = function() {
+
     var $this = this;
     var options = this.modelOptions;
     var css = options.css;
@@ -117,9 +121,17 @@ xModelPopup.prototype.position = function() {
     model.style.left = !this.modelOptions.css.left ? left+'px' : this.modelOptions.css.left;    
 }
 xModelPopup.prototype.open = function() {
-    document.getElementById(this.modelOptions.id).setAttribute('style', 'display: block');
-    this.position();
+    var $this = this;
+    document.getElementById($this.modelOptions.id).setAttribute('style', 'display: block');
+    $this.position();
+    if($this.modelOptions.other.escClose) {
+        document.getElementsByTagName('body')[0].addEventListener('keydown', function(e){
+            if(e.keyCode == 27) {
+                $this.close();
+            }
+        });
+    }
 }
 xModelPopup.prototype.close = function() {
-    document.getElementById(this.modelOptions.id).style.display = 'none';
+    document.getElementById(this.modelOptions.id).remove();
 }
